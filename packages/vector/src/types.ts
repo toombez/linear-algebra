@@ -71,4 +71,10 @@ export interface IMathOperationsVector<T> {
      * Inverse operation
      */
     inverse(): IVector<T>
+
+    /**
+     * Dot product operation
+     * @param vector vector to product
+     */
+    dotProduct(vector: VectorAsParameter<T>): IVector<T>
 }
