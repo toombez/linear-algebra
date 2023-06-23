@@ -1,6 +1,6 @@
 import { IVector, VectorAsParameter, VectorType } from 'types'
 
-export default abstract class Vector<T> implements IVector<T> {
+export default class Vector<T> implements IVector<T> {
     public constructor(
         private _components: VectorType<T> = [],
     ) {}
