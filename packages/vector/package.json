@@ -7,7 +7,7 @@
     "type": "module",
     "scripts": {
         "build": "tsup src/index.ts",
-        "dev": "pnpm run build --watch"
+        "dev": "pnpm run build --on-success \"node dist/index.js\" --watch"
     },
     "devDependencies": {
         "tsup": "^7.0.0",

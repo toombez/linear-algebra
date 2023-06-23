@@ -25,7 +25,7 @@ export interface IVector<T> {
     /**
      * Vector components
      */
-    values: VectorType<T>
+    components: VectorType<T>
 
     /**
      * Is empry vector
@@ -36,4 +36,45 @@ export interface IVector<T> {
      * Size
      */
     size: number
+}
+
+export interface IMathOperationsVector<T> {
+    /**
+     * Addition operation
+     *
+     * TODO: allow use vector with different sizes
+     * @param vector another vector to add
+     */
+    add(vector: VectorAsParameter<T>): IVector<T>
+
+    /**
+     * Subtraction operaiton
+     *
+     * TODO: allow use vector with different sizes
+     * @param vector another vector to substract
+     */
+    substract(vector: VectorAsParameter<T>): IVector<T>
+
+    /**
+     * Multiply operation
+     * @param factor value to multiply vector
+     */
+    multiply(factor: number): IVector<T>
+
+    /**
+     * Divide operation
+     * @param factor value to divide vector
+     */
+    divide(factor: number): IVector<T>
+
+    /**
+     * Inverse operation
+     */
+    inverse(): IVector<T>
+
+    /**
+     * Dot product operation
+     * @param vector vector to product
+     */
+    dotProduct(vector: VectorAsParameter<T>): IVector<T>
 }
