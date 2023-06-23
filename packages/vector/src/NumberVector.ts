@@ -42,4 +42,6 @@ export default class NumberVector
 
         return new NumberVector(components)
     }
+
+    // TODO: add cross product
 }
