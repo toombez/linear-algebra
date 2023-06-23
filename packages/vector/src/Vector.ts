@@ -1,9 +1,13 @@
 import { IVector, VectorAsParameter, VectorType } from 'types'
 
 export default class Vector<T> implements IVector<T> {
+    private _components: VectorType<T>
+
     public constructor(
-        private _components: VectorType<T> = [],
-    ) {}
+        components: VectorAsParameter<T> = [],
+    ) {
+        this._components = Vector.getComponents(components)
+    }
 
     public get components() {
         return [...this._components]
