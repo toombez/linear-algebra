@@ -25,7 +25,7 @@ export interface IVector<T> {
     /**
      * Vector components
      */
-    values: VectorType<T>
+    components: VectorType<T>
 
     /**
      * Is empry vector

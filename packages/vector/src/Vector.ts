@@ -1,12 +1,20 @@
-import { IVector, VectorAsParameter, VectorType } from 'types';
+import { IVector, VectorAsParameter, VectorType } from 'types'
 
 export default abstract class Vector<T> implements IVector<T> {
     public constructor(
-        private _values: VectorType<T> = [],
+        private _components: VectorType<T> = [],
     ) {}
 
-    public get values() {
-        return [...this._values]
+    public get components() {
+        return [...this._components]
+    }
+
+    public get size(): number {
+        return this.components.length
+    }
+
+    public get isEmpty(): boolean {
+        return this.components.length === 0
     }
 
     /**
@@ -14,19 +22,15 @@ export default abstract class Vector<T> implements IVector<T> {
      * @param vector vector type or vector class instance
      * @returns vector type values
      */
-    protected getValues(vector: VectorAsParameter<T>): VectorType<T> {
-        return this.isIVector(vector) ? vector.values : vector
+    public static getComponents<T>(
+        vector: VectorAsParameter<T>,
+    ): VectorType<T> {
+        return this.isIVector(vector) ? vector.components : vector
     }
 
-    public get size(): number {
-        return this.values.length
-    }
-
-    public get isEmpty(): boolean {
-        return this.values.length === 0
-    }
-
-    private isIVector(vector: VectorAsParameter<T>): vector is IVector<T> {
-        return 'values' in vector
+    public static isIVector<T>(
+        vector: VectorAsParameter<T>,
+    ): vector is IVector<T> {
+        return 'components' in vector
     }
 }
