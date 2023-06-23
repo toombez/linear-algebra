@@ -40,6 +40,11 @@ export interface IVector<T> {
 
 export interface IMathOperationsVector<T> {
     /**
+     * Vector magnitude
+     */
+    magnitude: number
+
+    /**
      * Addition operation
      *
      * TODO: allow use vector with different sizes
@@ -77,6 +82,11 @@ export interface IMathOperationsVector<T> {
      * @param vector vector to product
      */
     dotProduct(vector: VectorAsParameter<T>): IVector<T>
+
+    /**
+     * Normalize vector
+     */
+    normalize(): IVector<T>
 }
 
 /**
