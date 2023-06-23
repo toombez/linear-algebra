@@ -12,6 +12,7 @@
     "devDependencies": {
         "tsup": "^7.0.0",
         "typescript": "^5.1.3",
-        "@linear-algebra/tsconfig": "*"
+        "@linear-algebra/tsconfig": "*",
+        "@linear-algebra/vector": "*"
     }
 }
