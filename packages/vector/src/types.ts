@@ -25,5 +25,15 @@ export interface IVector<T> {
     /**
      * Vector components
      */
-    values: Vector1DType<T>
+    values: VectorType<T>
+
+    /**
+     * Is empry vector
+     */
+    isEmpty: boolean
+
+    /**
+     * Size
+     */
+    size: number
 }
