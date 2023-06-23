@@ -32,6 +32,11 @@ export default class Vector<T> implements IVector<T> {
         return this.isIVector(vector) ? vector.components : vector
     }
 
+    /**
+     * Check is implements vector IVector
+     * @param vector IVector object or VectorType
+     * @returns is vector implements IVector
+     */
     public static isIVector<T>(
         vector: VectorAsParameter<T>,
     ): vector is IVector<T> {
