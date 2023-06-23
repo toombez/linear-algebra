@@ -5,6 +5,11 @@ import { VectorType } from '@linear-algebra/vector'
  */
 export type MatrixType<T> = VectorType<VectorType<T>>
 
+export interface IMatrixDimensions {
+    rows: number
+    columns: number
+}
+
 export interface IMatrix<T> {
     /**
      * Matrix elements
