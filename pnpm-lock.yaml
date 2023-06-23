@@ -11,6 +11,21 @@ importers:
         specifier: latest
         version: 1.10.3
 
+  packages/matrix:
+    devDependencies:
+      '@linear-algebra/tsconfig':
+        specifier: '*'
+        version: link:../tsconfig
+      '@linear-algebra/vector':
+        specifier: '*'
+        version: link:../vector
+      tsup:
+        specifier: ^7.0.0
+        version: 7.0.0(typescript@5.1.3)
+      typescript:
+        specifier: ^5.1.3
+        version: 5.1.3
+
   packages/tsconfig: {}
 
   packages/vector:
