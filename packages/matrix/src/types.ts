@@ -5,6 +5,8 @@ import { VectorType } from '@linear-algebra/vector'
  */
 export type MatrixType<T> = VectorType<VectorType<T>>
 
+export type MatrixAsParameter<T> = MatrixType<T> | IMatrix<T>
+
 export interface IMatrixDimensions {
     /**
      * Matrix rows count
@@ -49,4 +51,35 @@ export interface IMatrix<T> {
      * Matrix dimensions
      */
     dimensions: IMatrixDimensions
+}
+
+export interface IMathOperationsMatrix<T> {
+    /**
+     * Add matrix operation
+     * @param matrix another matrix to add
+     */
+    add(matrix: MatrixAsParameter<T>): IMatrix<T>
+
+    /**
+     * Substract matrix operation
+     * @param matrix another matrix to substract
+     */
+    substract(matrix: MatrixAsParameter<T>): IMatrix<T>
+
+    /**
+     * Scalar multiply operation
+     * @param factor multiply factor
+     */
+    scalarMultiply(factor: number): IMatrix<T>
+
+    /**
+     * Multiplty matrices operation
+     * @param matrix another matrix to multiply
+     */
+    multiply(matrix: MatrixAsParameter<T>): IMatrix<T>
+
+    /**
+     * Inverse matrix elements
+     */
+    inverse(): IMatrix<T>
 }
