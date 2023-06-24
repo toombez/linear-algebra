@@ -6,8 +6,20 @@ import { VectorType } from '@linear-algebra/vector'
 export type MatrixType<T> = VectorType<VectorType<T>>
 
 export interface IMatrixDimensions {
+    /**
+     * Matrix rows count
+     */
     rows: number
+
+    /**
+     * Matrix columns count
+     */
     columns: number
+
+    /**
+     * Matrix is square shape
+     */
+    isSquare: boolean
 }
 
 export interface IMatrix<T> {
