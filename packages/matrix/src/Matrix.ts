@@ -1,4 +1,5 @@
 import { VectorType } from '@linear-algebra/vector';
+import MatrixDimensions from 'MatrixDimensions';
 import { IMatrix, MatrixType } from 'types';
 
 export default class Matrix<T> implements IMatrix<T> {
@@ -12,14 +13,14 @@ export default class Matrix<T> implements IMatrix<T> {
         return this._elements
     }
 
-    public column(index: number): VectorType<T> {
-        return this
-            .transpose()
-            .row(index)
+    public rowVector(index: number): VectorType<T> {
+        return this.elements[index]
     }
 
-    public row(index: number): VectorType<T> {
-        return this.elements[index]
+    public columnVector(index: number): VectorType<T> {
+        return this
+            .transpose()
+            .rowVector(index)
     }
 
     public transpose(): IMatrix<T> {
@@ -27,5 +28,9 @@ export default class Matrix<T> implements IMatrix<T> {
             .map((_, colIndex) => this.elements.map(row => row[colIndex]))
 
         return new Matrix(elements)
+    }
+
+    public get dimensions(): MatrixDimensions {
+        return new MatrixDimensions(this)
     }
 }

@@ -32,16 +32,21 @@ export interface IMatrix<T> {
      * Get column by index
      * @param index column index
      */
-    column(index: number): VectorType<T>
+    columnVector(index: number): VectorType<T>
 
     /**
      * Get row by index
      * @param index row index
      */
-    row(index: number): VectorType<T>
+    rowVector(index: number): VectorType<T>
 
     /**
      * Transpose matrix
      */
     transpose(): IMatrix<T>
+
+    /**
+     * Matrix dimensions
+     */
+    dimensions: IMatrixDimensions
 }
