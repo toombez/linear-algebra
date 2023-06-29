@@ -23,17 +23,17 @@ export interface IVector<T> {
     /**
      * Vector components
      */
-    components: VectorType<T>
+    readonly components: ImmutableVectorType<T>
 
     /**
      * Is empry vector
      */
-    isEmpty: boolean
+    readonly isEmpty: boolean
 
     /**
      * Size
      */
-    size: number
+    readonly size: number
 }
 
 export interface IMathOperationsVector<T> {

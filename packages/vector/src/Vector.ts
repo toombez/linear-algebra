@@ -1,16 +1,18 @@
-import { IVector, VectorAsParameter, VectorType } from 'types'
+import {
+    IVector,
+    ImmutableVectorType,
+    VectorAsParameter,
+} from 'types'
 
-export default class Vector<T> implements IVector<T> {
-    private _components: VectorType<T>
+export default class Vector<T> implements Readonly<IVector<T>> {
+    private _components: ImmutableVectorType<T> = []
 
-    public constructor(
-        components: VectorAsParameter<T> = [],
-    ) {
+    public constructor(components: VectorAsParameter<T> = []) {
         this._components = Vector.getComponents(components)
     }
 
-    public get components() {
-        return [...this._components]
+    public get components(): ImmutableVectorType<T> {
+        return this._components
     }
 
     public get size(): number {
@@ -28,7 +30,7 @@ export default class Vector<T> implements IVector<T> {
      */
     public static getComponents<T>(
         vector: VectorAsParameter<T>,
-    ): VectorType<T> {
+    ): ImmutableVectorType<T> {
         return this.isIVector(vector) ? vector.components : vector
     }
 
@@ -41,5 +43,7 @@ export default class Vector<T> implements IVector<T> {
         vector: VectorAsParameter<T>,
     ): vector is IVector<T> {
         return 'components' in vector
+            && 'size' in vector
+            && 'isEmpty' in vector
     }
 }
