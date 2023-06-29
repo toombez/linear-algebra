@@ -52,5 +52,9 @@ export default class Matrix<T> implements IMatrix<T> {
         matrix: MatrixAsParameter<T>
     ): matrix is IMatrix<T> {
         return 'elements' in matrix
+            && 'dimensions' in matrix
+            && 'columnVector' in matrix
+            && 'rowVector' in matrix
+            && 'transpose' in matrix
     }
 }

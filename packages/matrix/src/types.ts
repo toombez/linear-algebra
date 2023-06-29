@@ -1,9 +1,13 @@
-import { VectorType } from '@linear-algebra/vector'
+import { ImmutableVectorType, VectorType } from '@linear-algebra/vector'
 
 /**
  * Matrix type
  */
 export type MatrixType<T> = VectorType<VectorType<T>>
+
+export type ImmutableMatrixType<T> = ImmutableVectorType<
+    ImmutableVectorType<T>
+>
 
 export type MatrixAsParameter<T> = MatrixType<T> | IMatrix<T>
 
@@ -11,24 +15,24 @@ export interface IMatrixDimensions {
     /**
      * Matrix rows count
      */
-    rows: number
+    readonly rows: number
 
     /**
      * Matrix columns count
      */
-    columns: number
+    readonly columns: number
 
     /**
      * Matrix is square shape
      */
-    isSquare: boolean
+    readonly isSquare: boolean
 }
 
 export interface IMatrix<T> {
     /**
      * Matrix elements
      */
-    elements: MatrixType<T>
+    readonly elements: MatrixType<T>
 
     /**
      * Get column by index
@@ -50,7 +54,7 @@ export interface IMatrix<T> {
     /**
      * Matrix dimensions
      */
-    dimensions: IMatrixDimensions
+    readonly dimensions: IMatrixDimensions
 }
 
 export interface IMathOperationsMatrix<T> {
