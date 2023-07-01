@@ -40,7 +40,7 @@ export interface IMathOperationsVector<T> {
     /**
      * Vector magnitude
      */
-    magnitude: number
+    readonly magnitude: number
 
     /**
      * Addition operation

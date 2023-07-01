@@ -1,9 +1,9 @@
-import { VectorType } from '@linear-algebra/vector';
+import { ImmutableVectorType } from '@linear-algebra/vector';
 import MatrixDimensions from 'MatrixDimensions';
-import { IMatrix, MatrixAsParameter, MatrixType } from 'types';
+import { IMatrix, ImmutableMatrixType, MatrixAsParameter } from 'types';
 
 export default class Matrix<T> implements IMatrix<T> {
-    private _elements: MatrixType<T>
+    private _elements: ImmutableMatrixType<T>
 
     constructor(rows: MatrixAsParameter<T> = []) {
         this._elements = Matrix.getElements(rows)
@@ -13,11 +13,11 @@ export default class Matrix<T> implements IMatrix<T> {
         return this._elements
     }
 
-    public rowVector(index: number): VectorType<T> {
+    public rowVector(index: number): ImmutableVectorType<T> {
         return this.elements[index]
     }
 
-    public columnVector(index: number): VectorType<T> {
+    public columnVector(index: number): ImmutableVectorType<T> {
         return this
             .transpose()
             .rowVector(index)
@@ -39,7 +39,9 @@ export default class Matrix<T> implements IMatrix<T> {
      * @param matrix matrix as parameter
      * @returns matrix elements
      */
-    public static getElements<T>(matrix: MatrixAsParameter<T>): MatrixType<T> {
+    public static getElements<T>(
+        matrix: MatrixAsParameter<T>
+    ): ImmutableMatrixType<T> {
         return this.isIMatrix(matrix) ? matrix.elements : matrix
     }
 

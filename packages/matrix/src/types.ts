@@ -32,29 +32,29 @@ export interface IMatrix<T> {
     /**
      * Matrix elements
      */
-    readonly elements: MatrixType<T>
-
-    /**
-     * Get column by index
-     * @param index column index
-     */
-    columnVector(index: number): VectorType<T>
-
-    /**
-     * Get row by index
-     * @param index row index
-     */
-    rowVector(index: number): VectorType<T>
-
-    /**
-     * Transpose matrix
-     */
-    transpose(): IMatrix<T>
+    readonly elements: ImmutableMatrixType<T>
 
     /**
      * Matrix dimensions
      */
     readonly dimensions: IMatrixDimensions
+
+    /**
+     * Get column by index
+     * @param index column index
+     */
+    columnVector(index: number): ImmutableVectorType<T>
+
+    /**
+     * Get row by index
+     * @param index row index
+     */
+    rowVector(index: number): ImmutableVectorType<T>
+
+    /**
+     * Transpose matrix
+     */
+    transpose(): IMatrix<T>
 }
 
 export interface IMathOperationsMatrix<T> {
