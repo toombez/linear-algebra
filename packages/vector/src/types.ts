@@ -4,19 +4,17 @@
 export type VectorType<T = unknown> = Array<T>
 
 /**
- * One dimensions `vector` type
+ * Immutable vector type
  */
-export type Vector1DType<T = unknown> = VectorType<T>
-
-/**
- * Two dimensions `vector` type
- */
-export type Vector2DType<T = unknown> = Vector1DType<Vector1DType<T>>
+export type ImmutableVectorType<T> = Readonly<VectorType<T>>
 
 /**
  * Vector type to pass as parameter
  */
-export type VectorAsParameter<T> = VectorType<T> | IVector<T>
+export type VectorAsParameter<T> =
+    VectorType<T>
+    | ImmutableVectorType<T>
+    | IVector<T>
 
 /**
  * `Vector` interface for implementing any `vector` class
@@ -25,24 +23,24 @@ export interface IVector<T> {
     /**
      * Vector components
      */
-    components: VectorType<T>
+    readonly components: ImmutableVectorType<T>
 
     /**
      * Is empry vector
      */
-    isEmpty: boolean
+    readonly isEmpty: boolean
 
     /**
      * Size
      */
-    size: number
+    readonly size: number
 }
 
 export interface IMathOperationsVector<T> {
     /**
      * Vector magnitude
      */
-    magnitude: number
+    readonly magnitude: number
 
     /**
      * Addition operation

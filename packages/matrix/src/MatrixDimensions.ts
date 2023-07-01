@@ -2,7 +2,7 @@ import { IMatrix, IMatrixDimensions } from 'types';
 
 export default class MatrixDimensions implements IMatrixDimensions {
     constructor(
-        private matrix: IMatrix<any>
+        private readonly matrix: IMatrix<any>
     ) {}
 
     public get rows(): number {
